@@ -1,14 +1,17 @@
+
+
 <?php
 // Menentukan path utama proyek, yaitu folder 'niki mart' di dalam direktori utama web server
 define('ROOTPATH', $_SERVER['DOCUMENT_ROOT'] . '/niki mart');
-
+?>
+<link rel="stylesheet" href="/niki mart/asset/css/add-cashiers.css">
+<?php
 // Menyertakan file header.php agar tampilan header muncul di halaman ini
 include ROOTPATH . "/includes/header.php";
 ?>
 
 <!-- Menengahkan seluruh isi halaman -->
 <center>
-
     <!-- Judul halaman form -->
     <h2>Add Cashier</h2>
 

@@ -1,31 +1,4 @@
-<Style>
-            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-    table {
-        border-collapse: collapse;
-        width: 50%;
-    }
-
-    th, td {
-        padding: 8px;
-        text-align: left;
-    }
-
-    th {
-        background-color: #B6F500;
-        color: white;
-        font-weight: bold;
-        color: black;
-    }
-
-    td {
-        border-bottom: 1px solid #ddd;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-</Style>
 
 <?php
 // Menentukan lokasi utama proyek (folder 'indomaret_RPL4' di dalam server web)
@@ -41,14 +14,15 @@ include ROOTPATH . "/includes/header.php";
 $result = mysqli_query($conn, "SELECT * FROM cashier");
 ?>
 
+<link rel="stylesheet" href="/niki mart/asset/css/cashiers-list.css">
 <!-- Menengahkan seluruh isi halaman -->
 <center>
 
     <!-- Judul halaman -->
-    <h2>Cashier List</h2>
+    <h2><span class="judul-cashier">Cashier</span> <span class="judul-list">List</span></h2>
 
     <!-- Tombol menuju halaman tambah kasir -->
-    <a href="add.php">Add Cashier</a><br><br>
+    <a href="add.php">➕ Add Cashier</a><br><br>
 
     <!-- Tabel untuk menampilkan daftar kasir -->
     <table border="1" cellpadding="10" cellspacing="0">
@@ -57,7 +31,7 @@ $result = mysqli_query($conn, "SELECT * FROM cashier");
                 <!-- Header kolom tabel -->
                 <th>No</th>
                 <th>Name Cashier</th>
-                <th colspan="2">Action</th>
+                <th colspan="2" class="action-col">Action</th>
             </tr>
         </thead>
 
@@ -77,12 +51,12 @@ $result = mysqli_query($conn, "SELECT * FROM cashier");
                 <td><?= htmlspecialchars($row['name']) ?></td>
 
                 <!-- Tombol untuk mengedit data cashier -->
-                <td>
-                    <a href="edit.php?id=<?= $row['id'] ?>">Edit</a>
+                <td class="action-col">
+                    <a href="edit.php?id=<?= $row['id'] ?>">✏️ Edit</a>
                 </td>
 
                 <!-- Tombol untuk menghapus data cashier -->
-                <td>
+                <td class="action-col">
                     <?php
                     // Mengecek apakah cashier ini sudah digunakan di tabel transaksi
                     $id_cashier = $row['id'];
@@ -91,7 +65,7 @@ $result = mysqli_query($conn, "SELECT * FROM cashier");
                     // Jika cashier masih digunakan di transaksi, tombol hapus dinonaktifkan
                     if(mysqli_num_rows($cek) > 0){
                     ?>
-                    <input type="button" value="delete" disabled>
+                    <input type="button" value="🗑️ Delete" disabled>
 
                     <?php
                     // Jika tidak digunakan, tampilkan tombol hapus aktif
@@ -103,7 +77,7 @@ $result = mysqli_query($conn, "SELECT * FROM cashier");
                         onsubmit="return confirm('Are you sure you want to delete?')">
                         <input type="hidden" name="id" value="<?= $row['id'] ?>">
                         <input type="hidden" name="action" value="delete">
-                        <button type="submit">Delete</button>
+                        <button type="submit">🗑️ Delete</button>
                     </form>
                     <?php
                     }

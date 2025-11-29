@@ -1,13 +1,15 @@
 <?php
 // Menentukan path utama proyek (lokasi folder 'indomaret_RPL4' di dalam web server)
 define('ROOTPATH', $_SERVER['DOCUMENT_ROOT'] . '/niki mart');
+?>
+<link rel="stylesheet" href="/niki mart/asset/css/edit-cashiers.css">
+<?php
 
 // Memanggil file konfigurasi database (berisi koneksi ke MySQL)
 include ROOTPATH . "/config/config.php";
 
 // Memanggil file header agar tampilan atas halaman muncul (judul, menu, dll)
 include ROOTPATH . "/includes/header.php";
-
 // Mengecek apakah parameter 'id' dikirim lewat URL
 if (isset($_GET['id'])) {
     // Jika ada, simpan nilainya ke variabel $id
@@ -43,7 +45,7 @@ if (!$cashier) {
 <center>
 
     <!-- Judul halaman form -->
-    <h2>Edit kasir</h2>
+    <h2>Edit Cashier</h2>
 
     <!-- Formulir untuk mengedit data kasir -->
     <!-- action: file tujuan yang memproses data -->
