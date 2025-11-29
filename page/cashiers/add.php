@@ -1,6 +1,6 @@
 <?php
-// Menentukan path utama proyek, yaitu folder 'indomaret_niki' di dalam direktori utama web server
-define('ROOTPATH', $_SERVER['DOCUMENT_ROOT'] . '/indomaret_niki');
+// Menentukan path utama proyek, yaitu folder 'niki mart' di dalam direktori utama web server
+define('ROOTPATH', $_SERVER['DOCUMENT_ROOT'] . '/niki mart');
 
 // Menyertakan file header.php agar tampilan header muncul di halaman ini
 include ROOTPATH . "/includes/header.php";
@@ -15,7 +15,7 @@ include ROOTPATH . "/includes/header.php";
     <!-- Formulir untuk menambah data kasir baru -->
     <!-- action: file tujuan pengolahan data -->
     <!-- method="POST": mengirim data secara tersembunyi -->
-    <form action="/indomaret_niki/process/cashiers_process.php" method="POST">
+    <form action="/niki mart/process/cashiers_process.php" method="POST">
 
         <!-- Tabel digunakan untuk merapikan posisi input -->
         <table cellpadding="10">
@@ -32,7 +32,7 @@ include ROOTPATH . "/includes/header.php";
             <!-- Baris kedua: input untuk nama kasir -->
             <tr>
                 <td><label>Nama Kasir</label></td>
-                <td><input type="text" name="name" required /></td>
+                <td><input type="text" name="name_cashier" required /></td>
             </tr>
 
             <!-- Baris ketiga: tombol untuk menyimpan data -->
