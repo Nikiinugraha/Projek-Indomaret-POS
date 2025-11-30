@@ -26,7 +26,7 @@
             <!-- Daftar menu navigasi -->
             <ul>
                 <!-- Setiap item menu -->
-                <li><a href="/niki mart/page/dashboard.php">Dashboard</a></li>
+                <li><a href="/niki mart/index.php">Dashboard</a></li>
                 <li><a href="/niki mart/page/cashiers/list.php">Cashiers</a></li>
                 <li><a href="/niki mart/page/products/list.php">Product</a></li>
                 <li><a href="/niki mart/page/transactions/list.php">Transactions</a></li>

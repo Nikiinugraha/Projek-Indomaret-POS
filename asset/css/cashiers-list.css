@@ -99,9 +99,9 @@ a[href*="edit"] {
 }
 
 a[href*="add"] {
-    background: #4ADE80;
-    color: #065f46;
-    border: 1px solid #4ADE80;
+    background: #B6F500;
+    color: black;
+    border: 1px solid #B6F500;
     border-radius: 8px;
     font-weight: 600;
     box-shadow: 0 1px 4px 0 rgba(74,222,128,0.12);
@@ -112,9 +112,9 @@ a[href*="add"] {
 }
 
 a[href*="add"]:hover {
-    background: #22d3ee;
+    background: #B6F500;
     color: #065f46;
-    border: 1px solid #22d3ee;
+    border: 1px solid #B6F500;
 }
 
 a[href*="edit"]:hover {

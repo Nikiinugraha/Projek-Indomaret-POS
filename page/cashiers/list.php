@@ -22,7 +22,7 @@ $result = mysqli_query($conn, "SELECT * FROM cashier");
     <h2><span class="judul-cashier">Cashier</span> <span class="judul-list">List</span></h2>
 
     <!-- Tombol menuju halaman tambah kasir -->
-    <a href="add.php">➕ Add Cashier</a><br><br>
+    <a href="add.php">➕ Add Cashier</a><br>
 
     <!-- Tabel untuk menampilkan daftar kasir -->
     <table border="1" cellpadding="10" cellspacing="0">

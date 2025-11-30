@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/niki mart/asset/css/products-list.css">
 <?php
 // Menentukan lokasi folder utama proyek di server
 define('ROOTPATH', $_SERVER['DOCUMENT_ROOT'] . '/niki mart');
@@ -13,18 +14,19 @@ include ROOTPATH . "/includes/header.php";
 <!-- Menampilkan isi halaman di tengah -->
 <center>
 
+    <h2><span class="judul-product">Product</span><span  class="judul-available"> Available</span></h2>
     <!-- Tombol untuk menuju halaman tambah produk -->
-    <a href="add.php">Add Product</a><br><br>
+    <a href="add.php">➕ Add Product</a><br>
 
     <!-- Membuat tabel daftar produk -->
     <table border="1" cellpadding="20" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>ID Voucher</th>
-            <th>Nama Produk</th>
-            <th>Harga Satuan</th>
-            <th>Stok</th>
-            <th colspan="2">Aksi</th>
+            <th>Id Voucher</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Stock</th>
+            <th colspan="2">Action</th>
         </tr>
 
         <?php
@@ -42,13 +44,13 @@ include ROOTPATH . "/includes/header.php";
             <td><?= $no++ ?></td>
 
             <!-- Menampilkan ID voucher yang terhubung -->
-            <td><?= $product['id_vouchers'] ?></td>
+            <td><?= $product['id_voucher'] ?></td>
 
             <!-- Menampilkan nama produk -->
             <td><?= $product['name'] ?></td>
             <?php
             // Mengecek apakah produk ini memiliki voucher diskon
-            $query_voucher = mysqli_query($conn, "SELECT discount, max_discount FROM vouchers WHERE id = '$product[id_vouchers]'");
+            $query_voucher = mysqli_query($conn, "SELECT discount, max_discount FROM vouchers WHERE id = '$product[id_voucher]'");
             $voucher = mysqli_fetch_assoc($query_voucher);
 
             // Jika produk memiliki voucher, hitung harga setelah diskon
@@ -81,29 +83,29 @@ include ROOTPATH . "/includes/header.php";
             <td><?= $product['stock'] ?></td>
 
             <!-- Tombol untuk mengedit produk -->
-            <td><a href="edit.php?id=<?= $product['id'] ?>">edit</a></td>
+            <td><a href="edit.php?id=<?= $product['id'] ?>">✏️ Edit</a></td>
 
             <!-- Kolom tombol hapus -->
             <td>
 
                 <?php
                 // Mengecek apakah produk sudah digunakan dalam transaksi
-                $id_poduk = $product['id'];
-                $cek = mysqli_query($conn, "SELECT id_produk FROM detail_transaksi WHERE id_produk = '$id_poduk'");
+                $id_product = $product['id'];
+                $cek = mysqli_query($conn, "SELECT id_product FROM transaction_details WHERE id_product = '$id_product'");
 
                 // Jika produk sudah pernah digunakan, tombol hapus dinonaktifkan
                 if (mysqli_num_rows($cek) > 0) {
                 ?>
-                <input type="button" value="delete" disabled>
+                <input type="button" value="Delete" disabled>
                 <?php
                 // Jika belum pernah digunakan, tampilkan form hapus
                 } else {
                 ?>
-                <form action="/indomaret_RPL4/process/products_process.php" method="POST"
+                <form action="/niki mart/process/products_process.php" method="POST"
                     onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
                     <input type="hidden" name="action" value="delete">
                     <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                    <input type="submit" value="delete">
+                    <input type="submit" value="🗑️ Delete">
                 </form>
                 <?php
                 }
